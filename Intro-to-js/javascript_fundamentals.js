@@ -142,8 +142,51 @@ for (let i = 0; i < countries.length; i++) {
 console.log(countries); */
 
 //While Loop
-let i = 0;
+/* let i = 0;
 while (20 > i) {
   console.log(i % 2 == 0 ? i : "");
   i++;
+} */
+
+//for..of (array)
+/* const names = ["John", "Doe", "Bob"];
+for (const name of names) {
+  console.log(name.toLocaleUpperCase());
+} */
+
+//for...in(object)
+/* const players = {
+  Hervetz: {
+    goals: 34,
+    assist: 23,
+  },
+  Mount: {
+    goals: 23,
+    assist: 50,
+  },
+  James: {
+    goals: 12,
+    assist: 43,
+  },
+};
+
+let sum = 0;
+for (player in players) {
+  console.log(players[player].goals);
+  sum += players[player].goals;
 }
+
+console.log(sum); */
+
+//Function
+
+/* function add(x = 0, y = 0) {
+  return x + y;
+}
+
+console.log(add(5, 19)); */
+
+//Arrow Function
+const add = (x = 0, y = 0) => x + y;
+
+console.log(add(10, 20));
