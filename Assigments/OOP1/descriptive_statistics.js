@@ -56,6 +56,10 @@ class DescriptiveStatistics {
       this.data.length
     );
   }
+
+  standardDeviation() {
+    return Math.sqrt(this.variance());
+  }
 }
 
 // These are some examples
@@ -67,3 +71,4 @@ console.log("Median:", statsCalculator.median());
 console.log("Mode:", statsCalculator.mode());
 console.log("Range:", statsCalculator.range());
 console.log("Variance:", statsCalculator.variance());
+console.log("Standard Deviation:", statsCalculator.standardDeviation());
