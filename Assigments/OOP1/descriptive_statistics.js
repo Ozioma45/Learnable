@@ -45,6 +45,17 @@ class DescriptiveStatistics {
     const sortedData = this.data.slice().sort((a, b) => a - b);
     return sortedData[sortedData.length - 1] - sortedData[0];
   }
+
+  variance() {
+    const meanValue = this.mean();
+    const squaredDifferences = this.data.map(
+      (value) => (value - meanValue) ** 2
+    );
+    return (
+      squaredDifferences.reduce((acc, value) => acc + value, 0) /
+      this.data.length
+    );
+  }
 }
 
 // These are some examples
@@ -55,3 +66,4 @@ console.log("Mean:", statsCalculator.mean());
 console.log("Median:", statsCalculator.median());
 console.log("Mode:", statsCalculator.mode());
 console.log("Range:", statsCalculator.range());
+console.log("Variance:", statsCalculator.variance());
