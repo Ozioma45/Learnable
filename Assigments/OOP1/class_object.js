@@ -1,5 +1,5 @@
+//a class that has class/static properties and methods
 class Car {
-  // Instance property
   constructor(make, model, year) {
     this.make = make;
     this.model = model;
@@ -7,10 +7,8 @@ class Car {
     this.isEngineRunning = false;
   }
 
-  // Static property
   static numberOfWheels = 4;
 
-  // Instance method
   startEngine() {
     this.isEngineRunning = true;
     console.log(
@@ -18,7 +16,6 @@ class Car {
     );
   }
 
-  // Static method
   static getNumberOfWheels() {
     console.log(`A car has ${Car.numberOfWheels} wheels.`);
   }
@@ -31,6 +28,5 @@ const myCar = new Car("Toyota", "Camry", 2022);
 console.log(`My car is a ${myCar.year} ${myCar.make} ${myCar.model}.`);
 myCar.startEngine();
 
-// to access the static property and method
 console.log(`All cars have ${Car.numberOfWheels} wheels.`);
 Car.getNumberOfWheels();
