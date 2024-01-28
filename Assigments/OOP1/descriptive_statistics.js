@@ -60,6 +60,15 @@ class DescriptiveStatistics {
   standardDeviation() {
     return Math.sqrt(this.variance());
   }
+
+  interquartileRange() {
+    const sortedData = this.data.slice().sort((a, b) => a - b);
+    const lowerIndex = Math.floor(sortedData.length / 4);
+    const upperIndex = Math.ceil((3 * sortedData.length) / 4);
+    const lowerQuartile = sortedData[lowerIndex];
+    const upperQuartile = sortedData[upperIndex];
+    return upperQuartile - lowerQuartile;
+  }
 }
 
 // These are some examples
@@ -72,3 +81,4 @@ console.log("Mode:", statsCalculator.mode());
 console.log("Range:", statsCalculator.range());
 console.log("Variance:", statsCalculator.variance());
 console.log("Standard Deviation:", statsCalculator.standardDeviation());
+console.log("Interquartile Range:", statsCalculator.interquartileRange());
