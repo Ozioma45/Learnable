@@ -69,6 +69,10 @@ class DescriptiveStatistics {
     const upperQuartile = sortedData[upperIndex];
     return upperQuartile - lowerQuartile;
   }
+
+  coefficientOfVariation() {
+    return (this.standardDeviation() / this.mean()) * 100;
+  }
 }
 
 // These are some examples
@@ -82,3 +86,7 @@ console.log("Range:", statsCalculator.range());
 console.log("Variance:", statsCalculator.variance());
 console.log("Standard Deviation:", statsCalculator.standardDeviation());
 console.log("Interquartile Range:", statsCalculator.interquartileRange());
+console.log(
+  "Coefficient of Variation:",
+  statsCalculator.coefficientOfVariation()
+);
