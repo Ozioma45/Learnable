@@ -20,6 +20,24 @@ class DescriptiveStatistics {
       return sortedData[middleIndex];
     }
   }
+
+  mode() {
+    const frequencyMap = {};
+    let maxFrequency = 0;
+    let modes = [];
+
+    for (const value of this.data) {
+      frequencyMap[value] = (frequencyMap[value] || 0) + 1;
+      if (frequencyMap[value] > maxFrequency) {
+        maxFrequency = frequencyMap[value];
+        modes = [value];
+      } else if (frequencyMap[value] === maxFrequency) {
+        modes.push(value);
+      }
+    }
+
+    return modes.length === this.data.length ? [] : modes;
+  }
 }
 
 // These are some examples
@@ -28,3 +46,4 @@ const statsCalculator = new DescriptiveStatistics(data);
 
 console.log("Mean:", statsCalculator.mean());
 console.log("Median:", statsCalculator.median());
+console.log("Mode:", statsCalculator.mode());
