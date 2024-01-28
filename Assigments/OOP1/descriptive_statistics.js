@@ -38,6 +38,13 @@ class DescriptiveStatistics {
 
     return modes.length === this.data.length ? [] : modes;
   }
+
+  // Measures of Dispersion
+
+  range() {
+    const sortedData = this.data.slice().sort((a, b) => a - b);
+    return sortedData[sortedData.length - 1] - sortedData[0];
+  }
 }
 
 // These are some examples
@@ -47,3 +54,4 @@ const statsCalculator = new DescriptiveStatistics(data);
 console.log("Mean:", statsCalculator.mean());
 console.log("Median:", statsCalculator.median());
 console.log("Mode:", statsCalculator.mode());
+console.log("Range:", statsCalculator.range());
