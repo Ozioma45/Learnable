@@ -62,6 +62,11 @@ class Tutor extends User {
     return course;
   }
 
+  enrollStudent(course, student) {
+    course.enrollStudent(student);
+    console.log(`${student.username} enrolled in course "${course.title}"`);
+  }
+
   uploadContent(course, content) {
     course.addContent(content);
     console.log(
@@ -80,8 +85,7 @@ class Tutor extends User {
 class Administrator extends User {
   constructor(userId, username) {
     super(userId, username);
-    this.courseDatabase = [];
-    this.issuesDatabase = [];
+    this.userDatabase = [];
   }
 
   //to manage the users
@@ -177,8 +181,30 @@ class Course {
 //some few examples
 
 // Create instances
-const student1 = new Student(1, "Student1");
-const tutor1 = new Tutor(2, "Tutor1");
-const admin = new Administrator(3, "Admin1");
+const student1 = new Student(1, "Ebuke");
+const tutor1 = new Tutor(2, "Master James");
+const admin = new Administrator(3, "Management");
 
+//creating a course
 const course1 = tutor1.createCourse("Mathematics 101");
+student1.subscribeToCourse(course1);
+
+//for Tutor to upload content to the course
+tutor1.uploadContent(course1, "Introduction to Algebra");
+tutor1.uploadContent(course1, "Basic Geometry");
+
+//for Student to view enrolled courses and course content
+student1.viewEnrolledCourses();
+student1.viewCourseContent(course1);
+
+//for Tutor to monitor student progress
+tutor1.enrollStudent(course1, student1);
+tutor1.monitorStudentProgress(student1, course1);
+
+//for Student to mark lessons as completed
+const lesson1 = { title: "Introduction to Algebra" };
+student1.markLessonAsCompleted(lesson1);
+
+//Admin Create user accounts
+const user1 = admin.createUser("User1");
+const user2 = admin.createUser("User2");
