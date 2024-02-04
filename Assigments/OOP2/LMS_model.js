@@ -266,3 +266,5 @@ const videoContent = new VideoContent(
 const course = new Course("JavaScript 101");
 course.addContent(textContent);
 course.addContent(videoContent);
+
+course.displayCourseContent();
