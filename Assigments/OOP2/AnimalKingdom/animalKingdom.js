@@ -1,5 +1,5 @@
 // Base class for Animal
-class Animal {
+class animalKingdom {
   constructor(name, type) {
     this.name = name;
     this.type = type;
@@ -12,7 +12,7 @@ class Animal {
 }
 
 // subclass for animals without backbone
-class WithoutBackbone extends Animal {
+class WithoutBackbone extends animalKingdom {
   constructor(name, type, subclass) {
     super(name, type);
     this.subclass = subclass;
@@ -27,7 +27,7 @@ class WithoutBackbone extends Animal {
 }
 
 // Subclass for animals with backbone
-class WithBackbone extends Animal {
+class WithBackbone extends animalKingdom {
   constructor(name, type, subclass) {
     super(name, type);
     this.subclass = subclass;
@@ -42,7 +42,7 @@ class WithBackbone extends Animal {
 }
 
 // Subclass for Cold-Blooded Animals
-class ColdBlooded extends Animal {
+class ColdBlooded extends animalKingdom {
   constructor(name, type, subclass) {
     super(name, type);
     this.subclass = subclass;
@@ -62,7 +62,7 @@ class ColdBlooded extends Animal {
 }
 
 // Subclass for Warm-Blooded Animals
-class WarmBlooded extends Animal {
+class WarmBlooded extends animalKingdom {
   constructor(name, type, subclass) {
     super(name, type);
     this.subclass = subclass;
