@@ -6,6 +6,21 @@ class User {
   }
 }
 
+// Abstract class representing course content
+class CourseContent {
+  constructor(title) {
+    this.title = title;
+  }
+
+  displayContent() {
+    // Abstract method to display content, to be implemented by subclasses
+    throw new Error(
+      "Abstract method 'displayContent' must be implemented in subclasses."
+    );
+  }
+}
+
+//students inherits from user
 class Student extends User {
   constructor(userId, username) {
     super(userId, username);
@@ -49,6 +64,7 @@ class Student extends User {
   }
 }
 
+//tutor inherits from user
 class Tutor extends User {
   constructor(userId, username) {
     super(userId, username);
@@ -82,6 +98,7 @@ class Tutor extends User {
   }
 }
 
+//admin inherits from user
 class Administrator extends User {
   constructor(userId, username) {
     super(userId, username);
@@ -176,6 +193,11 @@ class Course {
     console.log(
       `Marking lesson "${lesson.title}" as completed for ${student.username} in course "${this.title}"`
     );
+  }
+
+  displayCourseContent() {
+    console.log(`Course Content for "${this.title}":`);
+    this.content.forEach((item) => item.displayContent());
   }
 }
 //some few examples
