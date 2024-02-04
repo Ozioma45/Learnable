@@ -48,3 +48,31 @@ class Student extends User {
     );
   }
 }
+
+class Tutor extends User {
+  constructor(userId, username) {
+    super(userId, username);
+    this.courses = [];
+  }
+
+  createCourse(title) {
+    const course = new Course(title);
+    console.log(`Course "${title}" created by ${this.username}`);
+    this.courses.push(course);
+    return course;
+  }
+
+  uploadContent(course, content) {
+    course.addContent(content);
+    console.log(
+      `Content uploaded to course "${course.title}" by ${this.username}`
+    );
+  }
+
+  monitorStudentProgress(student, course) {
+    const progress = course.getStudentProgress(student);
+    console.log(
+      `Monitoring progress for ${student.username} in course "${course.title}": ${progress}`
+    );
+  }
+}
