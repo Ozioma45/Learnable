@@ -144,3 +144,41 @@ class Administrator extends User {
     this.courseDatabase.forEach((course) => console.log(`- ${course.title}`));
   }
 }
+
+class Course {
+  constructor(title) {
+    this.title = title;
+    this.content = [];
+    this.enrolledStudents = [];
+    this.studentProgress = new Map(); // Map to track student progress
+  }
+
+  addContent(content) {
+    this.content.push(content);
+  }
+
+  enrollStudent(student) {
+    this.enrolledStudents.push(student);
+    this.studentProgress.set(student, 0); // Initialize progress to 0 for the enrolled student
+  }
+
+  getStudentProgress(student) {
+    return this.studentProgress.get(student) || 0;
+  }
+
+  markLessonAsCompleted(student, lesson) {
+    const progress = this.getStudentProgress(student);
+    this.studentProgress.set(student, progress + 1);
+    console.log(
+      `Marking lesson "${lesson.title}" as completed for ${student.username} in course "${this.title}"`
+    );
+  }
+}
+//some few examples
+
+// Create instances
+const student1 = new Student(1, "Student1");
+const tutor1 = new Tutor(2, "Tutor1");
+const admin = new Administrator(3, "Admin1");
+
+const course1 = tutor1.createCourse("Mathematics 101");
