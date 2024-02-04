@@ -1,7 +1,3 @@
-Certainly! Let's make the explanation more beginner-friendly:
-
----
-
 ## Abstractions in the Solution
 
 In our project, we use a concept called **abstraction** to make our code easier to understand and work with. Abstraction is like providing a simplified view of something complex, allowing us to use it without worrying about the nitty-gritty details.
