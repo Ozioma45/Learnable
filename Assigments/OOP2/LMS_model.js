@@ -76,3 +76,71 @@ class Tutor extends User {
     );
   }
 }
+
+class Administrator extends User {
+  constructor(userId, username) {
+    super(userId, username);
+    this.courseDatabase = [];
+    this.issuesDatabase = [];
+  }
+
+  //to manage the users
+  createUser(username) {
+    const newUser = new User(this.userDatabase.length + 1, username);
+    this.userDatabase.push(newUser);
+    console.log(`User account created: ${username}`);
+    return newUser;
+  }
+
+  updateUser(userId, newUsername) {
+    const userToUpdate = this.userDatabase.find(
+      (user) => user.userId === userId
+    );
+    if (userToUpdate) {
+      userToUpdate.username = newUsername;
+      console.log(`User account updated: ${userToUpdate.username}`);
+    } else {
+      console.log(`User not found with ID: ${userId}`);
+    }
+  }
+
+  deleteUser(userId) {
+    const index = this.userDatabase.findIndex((user) => user.userId === userId);
+    if (index !== -1) {
+      const deletedUser = this.userDatabase.splice(index, 1)[0];
+      console.log(`User account deleted: ${deletedUser.username}`);
+    } else {
+      console.log(`User not found with ID: ${userId}`);
+    }
+  }
+
+  listUsers() {
+    console.log("List of Users:");
+    this.userDatabase.forEach((user) =>
+      console.log(`ID: ${user.userId}, Username: ${user.username}`)
+    );
+  }
+
+  //to manage course
+  createCourse(title) {
+    const course = new Course(title);
+    this.courseDatabase.push(course);
+    console.log(`Course "${title}" created by ${this.username}`);
+    return course;
+  }
+
+  deleteCourse(course) {
+    const index = this.courseDatabase.indexOf(course);
+    if (index !== -1) {
+      this.courseDatabase.splice(index, 1);
+      console.log(`Course "${course.title}" deleted by ${this.username}`);
+    } else {
+      console.log(`Course not found: ${course.title}`);
+    }
+  }
+
+  listCourses() {
+    console.log("List of Courses:");
+    this.courseDatabase.forEach((course) => console.log(`- ${course.title}`));
+  }
+}
