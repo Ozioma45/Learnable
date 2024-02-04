@@ -6,20 +6,6 @@ class User {
   }
 }
 
-// Abstract class representing course content
-class CourseContent {
-  constructor(title) {
-    this.title = title;
-  }
-
-  displayContent() {
-    // Abstract method to display content, to be implemented by subclasses
-    throw new Error(
-      "Abstract method 'displayContent' must be implemented in subclasses."
-    );
-  }
-}
-
 //students inherits from user
 class Student extends User {
   constructor(userId, username) {
@@ -166,6 +152,43 @@ class Administrator extends User {
   }
 }
 
+class CourseContent {
+  constructor(title) {
+    this.title = title;
+  }
+
+  displayContent() {
+    // Abstract method to display content, to be implemented by subclasses
+    throw new Error(
+      "Abstract method 'displayContent' must be implemented in subclasses."
+    );
+  }
+}
+
+//a type of CourseContent
+class TextContent extends CourseContent {
+  constructor(title, text) {
+    super(title);
+    this.text = text;
+  }
+
+  displayContent() {
+    console.log(`[Text Content] ${this.title}: ${this.text}`);
+  }
+}
+
+//VideoContent, another type of CourseContent
+class VideoContent extends CourseContent {
+  constructor(title, videoUrl) {
+    super(title);
+    this.videoUrl = videoUrl;
+  }
+
+  displayContent() {
+    console.log(`[Video Content] ${this.title}: Watch at ${this.videoUrl}`);
+  }
+}
+
 class Course {
   constructor(title) {
     this.title = title;
@@ -180,7 +203,6 @@ class Course {
 
   enrollStudent(student) {
     this.enrolledStudents.push(student);
-    this.studentProgress.set(student, 0); // Initialize progress to 0 for the enrolled student
   }
 
   getStudentProgress(student) {
@@ -200,6 +222,7 @@ class Course {
     this.content.forEach((item) => item.displayContent());
   }
 }
+
 //some few examples
 
 // Create instances
@@ -228,5 +251,18 @@ const lesson1 = { title: "Introduction to Algebra" };
 student1.markLessonAsCompleted(lesson1);
 
 //Admin Create user accounts
-const user1 = admin.createUser("User1");
-const user2 = admin.createUser("User2");
+const user1 = admin.createUser("EMEKA");
+const user2 = admin.createUser("Chibuike");
+
+const textContent = new TextContent(
+  "Introduction to JavaScript",
+  "Learn the basics of JavaScript."
+);
+const videoContent = new VideoContent(
+  "JavaScript Functions",
+  "https://example.com/functions-video"
+);
+
+const course = new Course("JavaScript 101");
+course.addContent(textContent);
+course.addContent(videoContent);
