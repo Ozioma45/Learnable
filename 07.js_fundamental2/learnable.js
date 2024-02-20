@@ -85,3 +85,4 @@ window.addEventListener("load", (event) => {
 });
 
 //Class 4 : Aynchronus Programming
+//Class 5 : JS Module System
