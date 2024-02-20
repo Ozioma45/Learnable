@@ -67,9 +67,8 @@ window.addEventListener("load", (event) => {
   console.log(document.querySelector("#myHeader"));
   console.log(document.querySelector(".myList"));
   console.log(document.querySelectorAll(".myList")); */
-
   //Node relationship
-  console.log(document.querySelector(".myList").parentNode);
+  /* console.log(document.querySelector(".myList").parentNode);
   console.log(document.getElementById("myListContainer").childNodes);
   console.log(
     document.getElementById("myListContainer").firstElementChild.innerHTML
@@ -82,5 +81,7 @@ window.addEventListener("load", (event) => {
   );
   console.log(
     document.getElementById("thirdListItem").previousElementSibling.innerHTML
-  );
+  ); */
 });
+
+//Class 4 : Aynchronus Programming
