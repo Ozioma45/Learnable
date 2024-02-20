@@ -56,4 +56,31 @@ const sumOfLearnableGrade = learnableGrades.reduce(
   (currentItem, accumulator) => currentItem + accumulator
 );
 
-console.log(sumOfLearnableGrade);
+//console.log(sumOfLearnableGrade);
+
+//Class 3: DOM Manipulation
+window.addEventListener("load", (event) => {
+  /* console.log("Learnable is amazing");
+  console.log(document.getElementById("register"));
+  console.log(document.getElementsByClassName("myList"));
+  console.log(document.getElementsByTagName("h1"));
+  console.log(document.querySelector("#myHeader"));
+  console.log(document.querySelector(".myList"));
+  console.log(document.querySelectorAll(".myList")); */
+
+  //Node relationship
+  console.log(document.querySelector(".myList").parentNode);
+  console.log(document.getElementById("myListContainer").childNodes);
+  console.log(
+    document.getElementById("myListContainer").firstElementChild.innerHTML
+  );
+  console.log(
+    document.getElementById("myListContainer").lastElementChild.innerHTML
+  );
+  console.log(
+    document.getElementById("thirdListItem").nextElementSibling.innerHTML
+  );
+  console.log(
+    document.getElementById("thirdListItem").previousElementSibling.innerHTML
+  );
+});
