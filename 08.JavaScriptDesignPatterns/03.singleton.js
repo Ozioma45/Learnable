@@ -1,4 +1,5 @@
-Singleton Pattern: In this pattern, you create a class that can only have one instance throughout the program. It's like having just one unique manager in a store who handles everything.
+/* Singleton Pattern: In this pattern, you create a class that can only have one instance throughout the program. 
+It's like having just one unique manager in a store who handles everything. */
 
 class Database {
   getInstance() {
