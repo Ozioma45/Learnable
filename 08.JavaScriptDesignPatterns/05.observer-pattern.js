@@ -1,3 +1,6 @@
+/* Observer Pattern: This pattern is like subscribing to a magazine. You have subscribers (observers) 
+who are interested in updates, and when there's a change (update), they get notified automatically. */
+
 class Subjest {
   constructor() {
     this.observers = new Set();

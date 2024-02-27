@@ -1,3 +1,6 @@
+/* Constructor Pattern: This pattern involves creating objects with predefined properties and methods 
+using a constructor function. It's like a blueprint for making similar objects. */
+
 class Car {
   constructor(model, year, miles) {
     this.model = model;

@@ -1,3 +1,7 @@
+/* Adapter Pattern: Imagine you have two devices with different types of plugs. An adapter helps connect 
+them so they can work together. Similarly, in programming, the adapter pattern helps make incompatible 
+interfaces work together smoothly. */
+
 class StockMarketExchange {
   getStockMarketData() {
     return `<note>
