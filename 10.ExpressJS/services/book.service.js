@@ -19,8 +19,8 @@ class BookService {
   }
 
   //get a single book
-  async fetchOne(id) {
-    return await BookModel.findById(id);
+  async fetchOne(filter) {
+    return await BookModel.findOne(filter);
   }
 
   //fetch all books

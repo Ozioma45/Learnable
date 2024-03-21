@@ -19,7 +19,7 @@ mongoose
     console.log("There was an issue while connecting to the database");
   });
 
-const port = process.env.port || 3839;
+const port = process.env.port || 4000;
 
 app.listen(port, () => {
   console.log(`Server is up and running on ${port}`);

@@ -4,14 +4,15 @@ class BookController {
   //Create a book
 
   async createBook(req, res) {
-    const reqBody = req.Body;
+    const reqBody = req.body;
+    console.log(reqBody);
 
     //Check if the Book exist
 
     //if not, Create a new book and send a response
 
     const existingBook = await BookService.fetchOne({
-      name: reqBody.name.toLowercase(),
+      name: reqBody.name.toLowerCase(),
     });
 
     if (existingBook)
@@ -32,7 +33,7 @@ class BookController {
   //Update a book
   async updateBook(req, res) {
     const bookId = req.params.id;
-    const updateData = req.Body;
+    const updateData = req.body;
 
     //check if the book to edit exist in the database
     const existingBook = await BookService.fetchOne({
@@ -45,9 +46,9 @@ class BookController {
       });
 
     //since the name is a unique key we have to make it consistent
-    if (updateData.name) {
+    if (updateData && updateData.name) {
       const existingBookWithUpdateBook = await BookService.fetchOne({
-        name: updateData.name.toLowercase(),
+        name: updateData.name.toLowerCase(),
       });
 
       if (existingBookWithUpdateBook._id === existingBook._id.toString()) {
@@ -77,7 +78,7 @@ class BookController {
     });
 
     if (!existingBook)
-      res.status(403).json({
+      res.status(404).json({
         success: false,
         message: "book to delete do not exist",
       });
@@ -89,6 +90,7 @@ class BookController {
       data: deletedBook,
     });
   }
+
   //Fetch a single book
   async fetchOneBook(req, res) {
     const bookId = req.params.id;

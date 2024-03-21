@@ -9,8 +9,8 @@ const {
 
 router.post("/", createBook);
 router.patch("/:id", updateBook);
-router.delete("/id", deleteBook);
-router.get("/id", fetchOneBook);
+router.delete("/:id", deleteBook);
+router.get("/:id", fetchOneBook);
 router.get("/", fetchMany);
 
 module.exports = router;
