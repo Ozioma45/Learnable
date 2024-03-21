@@ -31,7 +31,7 @@ class BookController {
 
   //Update a book
   async updateBook(req, res) {
-    const bookId = req.params;
+    const bookId = req.params.id;
     const updateData = req.Body;
 
     //check if the book to edit exist in the database
@@ -62,12 +62,63 @@ class BookController {
 
     res.status(200).json({
       success: true,
-      message: "Book Created Successfully",
-      data: newBook,
+      message: "Book updated Successfully",
+      data: updatedData,
     });
   }
 
   //Delete a book
+  async deleteBook(req, res) {
+    const bookId = req.params.id;
+
+    //check if the book to edit exist in the database
+    const existingBook = await BookService.fetchOne({
+      _id: bookId,
+    });
+
+    if (!existingBook)
+      res.status(403).json({
+        success: false,
+        message: "book to delete do not exist",
+      });
+
+    const deletedBook = await BookService.delete(bookId);
+    res.status(200).json({
+      success: true,
+      message: "Book deleted Successfully",
+      data: deletedBook,
+    });
+  }
   //Fetch a single book
+  async fetchOneBook(req, res) {
+    const bookId = req.params.id;
+
+    //check if the book to edit exist in the database
+    const existingBook = await BookService.fetchOne({
+      _id: bookId,
+    });
+
+    if (!existingBook)
+      res.status(403).json({
+        success: false,
+        message: "The book you are fetching doesn't exist",
+      });
+
+    res.status(200).json({
+      success: true,
+      message: "Book fetched Successfully",
+      data: existingBook,
+    });
+  }
+
   //Fetch many book
+  async fetchMany(req, res) {
+    const fetchedBook = await BookService.fetch({});
+
+    res.status(200).json({
+      success: true,
+      message: "Books fetched Successfully",
+      data: fetchedBook,
+    });
+  }
 }
