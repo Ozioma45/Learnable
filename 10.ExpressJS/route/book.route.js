@@ -13,4 +13,4 @@ router.delete("/id", deleteBook);
 router.get("/id", fetchOneBook);
 router.get("/", fetchMany);
 
-module.exports = BookRouter;
+module.exports = router;
